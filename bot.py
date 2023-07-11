@@ -52,20 +52,16 @@ async def help(interaction):
     view.add_item(
         Button(
             label="Invite",
-            url="https://dsc.gg/freeGPT",
+            url="None yet",
         )
     )
     view.add_item(
         Button(
             label="Server",
-            url="https://discord.gg/XH6pUGkwRr",
+            url="https://dsc.gg/voidutilssupport",
         )
     )
-    view.add_item(
-        Button(
-            label="Source",
-            url="https://github.com/Ruu3f/freeGPT-discord-bot",
-        )
+    
     )
     await interaction.response.send_message(embed=embed, view=view)
 
@@ -79,7 +75,7 @@ async def setup(interaction, model: str):
         await interaction.response.send_message(
             f"**Error:** Model not found! Choose a model between `{', '.join(models)}`."
         )
-        return
+       return
 
     cursor = await db.execute(
         "SELECT channels, model FROM database WHERE guilds = ?",
