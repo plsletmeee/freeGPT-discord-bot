@@ -75,7 +75,7 @@ async def setup(interaction, model: str):
         await interaction.response.send_message(
             f"**Error:** Model not found! Choose a model between `{', '.join(models)}`."
         )
-       return
+       return("a")
 
     cursor = await db.execute(
         "SELECT channels, model FROM database WHERE guilds = ?",
@@ -86,7 +86,7 @@ async def setup(interaction, model: str):
         await interaction.response.send_message(
             "**Error:** The chatbot is already set up. Use the `/reset` command to fix this error."
         )
-        return
+        return("a")
 
     if model.lower() in models:
         channel = await interaction.guild.create_text_channel(
@@ -123,7 +123,7 @@ async def reset(interaction):
         await interaction.response.send_message(
             "**Error:** The chatbot is not set up. Use the `/setup` command to fix this error."
         )
-        return
+        return("a")
 
     await db.execute("DELETE FROM database WHERE guilds = ?", (interaction.guild.id,))
     await db.commit()
