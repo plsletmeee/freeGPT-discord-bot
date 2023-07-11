@@ -47,7 +47,7 @@ async def help(interaction):
         value="Usage: `/setup {model}`",
     )
     embed.add_field(name="reset", value="Usage: `/reset`")
-    embed.set_footer(text="Powered by github.com/Ruu3f/freeGPT")
+    embed.set_footer("Made by Lucid._.")
     view = View()
     view.add_item(
         Button(
@@ -160,5 +160,5 @@ async def on_message(message):
                         await message.reply(str(e))
 
 
-TOKEN = ""
-asyncio.run(bot.run(TOKEN))
+
+asyncio.run(bot.run(process.env.TOKEN))
