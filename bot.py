@@ -62,7 +62,7 @@ async def help(interaction):
         )
     )
     
-    )
+    
     await interaction.response.send_message(embed=embed, view=view)
 
 
